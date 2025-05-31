@@ -25,36 +25,35 @@ const Contact: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const response = await fetch('https://formspree.io/f/xeokjnwj', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (response.ok) {
-      alert('Thank you for your message! I will get back to you soon.');
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+    try {
+      const response = await fetch('https://formspree.io/f/xeokjnwj', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    } else {
-      const data = await response.json();
-      alert(data.error || 'Oops! There was a problem submitting your form.');
-    }
-  } catch (error) {
-    alert('Oops! There was a problem submitting your form.');
-    console.error('Form submission error:', error);
-  }
-};
 
+      if (response.ok) {
+        alert('Thank you for your message! I will get back to you soon.');
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        const data = await response.json();
+        alert(data.error || 'Oops! There was a problem submitting your form.');
+      }
+    } catch (error) {
+      alert('Oops! There was a problem submitting your form.');
+      console.error('Form submission error:', error);
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -76,11 +75,11 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="section bg-gray-50">
+    <section id="contact" className="section bg-gray-50 dark:bg-gray-900">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="section-title">Get In Touch</h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto mt-4">
+          <h2 className="section-title dark:text-white">Get In Touch</h2>
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mt-4">
             Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
           </p>
         </div>
@@ -93,43 +92,41 @@ const Contact: React.FC = () => {
           className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-6xl mx-auto"
         >
           <motion.div variants={itemVariants} className="lg:col-span-2">
-            <div className="bg-white rounded-xl shadow-md p-6 h-full">
-              <h3 className="text-2xl font-semibold mb-6 text-gray-900">Contact Information</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 h-full">
+              <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">Contact Information</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="p-3 bg-primary-100 rounded-lg mr-4">
-                    <Mail size={20} className="text-primary-600" />
+                  <div className="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg mr-4">
+                    <Mail size={20} className="text-primary-600 dark:text-primary-400" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium mb-1 text-gray-900">Email</h4>
-                    <a href="mailto:saurav@example.com" className="text-primary-600 hover:text-primary-800">
+                    <h4 className="text-lg font-medium mb-1 text-gray-900 dark:text-white">Email</h4>
+                    <a href="mailto:sauravx25@gmail.com" className="text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300">
                       sauravx25@gmail.com
                     </a>
                   </div>
                 </div>
 
-                
-
                 <div className="flex items-start">
-                  <div className="p-3 bg-primary-100 rounded-lg mr-4">
-                    <MapPin size={20} className="text-primary-600" />
+                  <div className="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg mr-4">
+                    <MapPin size={20} className="text-primary-600 dark:text-primary-400" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium mb-1 text-gray-900">Location</h4>
-                    <p className="text-gray-700">Whitefield Bengaluru, India</p>
+                    <h4 className="text-lg font-medium mb-1 text-gray-900 dark:text-white">Location</h4>
+                    <p className="text-gray-700 dark:text-gray-300">Whitefield Bengaluru, India</p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8">
-                <h4 className="text-lg font-medium mb-3 text-gray-900">Social Profiles</h4>
+                <h4 className="text-lg font-medium mb-3 text-gray-900 dark:text-white">Social Profiles</h4>
                 <div className="flex space-x-4">
                   <a 
                     href="https://www.linkedin.com/in/sauravkumar25/"
                     target="_blank"
                     rel="noopener noreferrer" 
-                    className="p-3 bg-gray-100 rounded-full text-gray-700 hover:bg-primary-100 hover:text-primary-600 transition-colors"
+                    className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                     aria-label="LinkedIn"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
@@ -140,7 +137,7 @@ const Contact: React.FC = () => {
                     href="https://github.com/Saurava69" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-gray-100 rounded-full text-gray-700 hover:bg-primary-100 hover:text-primary-600 transition-colors"
+                    className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                     aria-label="GitHub"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
@@ -151,41 +148,39 @@ const Contact: React.FC = () => {
                     href="https://x.com/sauravx25"
                     target="_blank"
                     rel="noopener noreferrer" 
-                    className="p-3 bg-gray-100 rounded-full text-gray-700 hover:bg-primary-100 hover:text-primary-600 transition-colors"
+                    className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                     aria-label="Twitter"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M22,5.8a8.49,8.49,0,0,1-2.36.64,4.13,4.13,0,0,0,1.81-2.27,8.21,8.21,0,0,1-2.61,1,4.1,4.1,0,0,0-7,3.74A11.64,11.64,0,0,1,3.39,4.62a4.16,4.16,0,0,0-.55,2.07A4.09,4.09,0,0,0,4.66,10.1,4.05,4.05,0,0,1,2.8,9.59v.05a4.1,4.1,0,0,0,3.3,4A3.93,3.93,0,0,1,5,13.81a4.9,4.9,0,0,1-.77-.07,4.11,4.11,0,0,0,3.83,2.84A8.22,8.22,0,0,1,3,18.34a7.93,7.93,0,0,1-1-.06,11.57,11.57,0,0,0,6.29,1.85A11.59,11.59,0,0,0,20,8.45c0-.17,0-.35,0-.53A8.43,8.43,0,0,0,22,5.8Z"/>
                     </svg>
                   </a>
-                  {/* LeetCode Icon */}
-              <a
-                href="https://leetcode.com/0explorer0"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-gray-100 text-gray-700 rounded-full hover:bg-primary-100 hover:text-primary-600 transition-colors"
-                aria-label="LeetCode"
-              >
-                <img
-                  src="https://res.cloudinary.com/dvqqjf3pc/image/upload/v1748721044/leetcode_1_sxjs0a.png"
-                  alt="LeetCode"
-                  className="w-5 h-5"
-                />
-              </a>
-
+                  <a
+                    href="https://leetcode.com/0explorer0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                    aria-label="LeetCode"
+                  >
+                    <img
+                      src="https://res.cloudinary.com/dvqqjf3pc/image/upload/v1748721044/leetcode_1_sxjs0a.png"
+                      alt="LeetCode"
+                      className="w-5 h-5"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
           </motion.div>
 
           <motion.div variants={itemVariants} className="lg:col-span-3">
-            <div className="bg-white rounded-xl shadow-md p-6">
-              <h3 className="text-2xl font-semibold mb-6 text-gray-900">Send Me a Message</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+              <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">Send Me a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                       Your Name
                     </label>
                     <input
@@ -194,13 +189,13 @@ const Contact: React.FC = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                      className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400"
                       required
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                       Your Email
                     </label>
                     <input
@@ -209,14 +204,14 @@ const Contact: React.FC = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                      className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400"
                       required
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Subject
                   </label>
                   <input
@@ -225,13 +220,13 @@ const Contact: React.FC = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                    className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400"
                     required
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Message
                   </label>
                   <textarea
@@ -240,14 +235,14 @@ const Contact: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                    className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400"
                     required
                   ></textarea>
                 </div>
                 
                 <button
                   type="submit"
-                  className="button-primary w-full md:w-auto flex items-center justify-center"
+                  className="button-primary w-full md:w-auto flex items-center justify-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-400"
                 >
                   <Send size={18} className="mr-2" />
                   Send Message
