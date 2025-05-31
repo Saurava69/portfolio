@@ -30,29 +30,29 @@ const About: React.FC = () => {
 
   const services = [
     {
-      icon: <Code size={28} className="text-primary-600" />,
+      icon: <Code size={28} className="text-primary-600 dark:text-primary-400" />,
       title: 'Full-Stack Development',
       description: 'Building secure, scalable apps with React, Next.js, Node.js & MongoDB.'
     },
     {
-      icon: <Layout size={28} className="text-primary-600" />,
+      icon: <Layout size={28} className="text-primary-600 dark:text-primary-400" />,
       title: 'AI, LLMs & Automation',
       description: 'Building AI solutions with TensorFlow, LLMs & autonomous agents.'
     },
     {
-      icon: <Smartphone size={28} className="text-primary-600" />,
+      icon: <Smartphone size={28} className="text-primary-600 dark:text-primary-400" />,
       title: 'Embedded & FPGA Systems',
       description: 'Building hardware control systems with microcontrollers & FPGAs.'
     },
     {
-      icon: <Lightbulb size={28} className="text-primary-600" />,
+      icon: <Lightbulb size={28} className="text-primary-600 dark:text-primary-400" />,
       title: 'Creative Tech Solutions',
       description: 'creating scalable web apps with modern stacks.'
     }
   ];
 
   return (
-    <section id="about" className="section bg-white">
+    <section id="about" className="section bg-white dark:bg-gray-900">
       <div className="container-custom">
         <motion.div
           ref={ref}
@@ -62,14 +62,13 @@ const About: React.FC = () => {
           className="max-w-4xl mx-auto"
         >
           <motion.div variants={itemVariants} className="text-center mb-12">
-            <h2 className="section-title mb-6 inline-block">About Me</h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto">
+            <h2 className="section-title mb-6 inline-block dark:text-white">About Me</h2>
+            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto">
               Full-stack developer with 1 year of experience building practical software solutions across web, AI, and embedded systems. Passionate about clean code, real-world impact, and continuous learning.
             </p>
           </motion.div>
 
-
-          <motion.h3 variants={itemVariants} className="text-2xl font-semibold text-center mb-8">
+          <motion.h3 variants={itemVariants} className="text-2xl font-semibold text-center mb-8 dark:text-white">
             What I Do
           </motion.h3>
 
@@ -80,13 +79,13 @@ const About: React.FC = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="card group hover:border-l-4 hover:border-primary-500"
+                className="card group hover:border-l-4 hover:border-primary-500 dark:bg-gray-800 dark:hover:border-primary-400"
               >
-                <div className="mb-4 p-3 inline-block rounded-lg bg-primary-50 group-hover:bg-primary-100 transition-colors">
+                <div className="mb-4 p-3 inline-block rounded-lg bg-primary-50 dark:bg-primary-900/50 group-hover:bg-primary-100 dark:group-hover:bg-primary-900 transition-colors">
                   {service.icon}
                 </div>
-                <h4 className="text-xl font-semibold mb-2">{service.title}</h4>
-                <p className="text-gray-600">{service.description}</p>
+                <h4 className="text-xl font-semibold mb-2 dark:text-white">{service.title}</h4>
+                <p className="text-gray-600 dark:text-gray-300">{service.description}</p>
               </div>
             ))}
           </motion.div>

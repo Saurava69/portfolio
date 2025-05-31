@@ -92,21 +92,21 @@ const Projects: React.FC = () => {
     : projects.filter(project => project.category === filter);
 
   return (
-    <section id="projects" className="section bg-gray-50">
+    <section id="projects" className="section bg-gray-50 dark:bg-gray-900">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="section-title">Featured Projects</h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto mt-4">
+          <h2 className="section-title dark:text-white">Featured Projects</h2>
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mt-4">
             A selection of my recent work, showcasing my skills and passion for building engaging digital experiences.
           </p>
         </div>
 
         <div className="flex justify-center mb-8">
-          <div className="inline-flex bg-gray-100 p-1 rounded-lg">
+          <div className="inline-flex bg-gray-100 dark:bg-gray-800 p-1 rounded-lg">
             <button 
               onClick={() => setFilter('all')} 
               className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-                filter === 'all' ? 'bg-white shadow-sm text-primary-600' : 'text-gray-700 hover:text-primary-600'
+                filter === 'all' ? 'bg-white dark:bg-gray-700 shadow-sm text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
               }`}
             >
               All
@@ -114,7 +114,7 @@ const Projects: React.FC = () => {
             <button 
               onClick={() => setFilter('web')} 
               className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-                filter === 'web' ? 'bg-white shadow-sm text-primary-600' : 'text-gray-700 hover:text-primary-600'
+                filter === 'web' ? 'bg-white dark:bg-gray-700 shadow-sm text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
               }`}
             >
               Web
@@ -122,7 +122,7 @@ const Projects: React.FC = () => {
             <button 
               onClick={() => setFilter('mobile')} 
               className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-                filter === 'mobile' ? 'bg-white shadow-sm text-primary-600' : 'text-gray-700 hover:text-primary-600'
+                filter === 'mobile' ? 'bg-white dark:bg-gray-700 shadow-sm text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
               }`}
             >
               Mobile
@@ -130,7 +130,7 @@ const Projects: React.FC = () => {
             <button 
               onClick={() => setFilter('design')} 
               className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-                filter === 'design' ? 'bg-white shadow-sm text-primary-600' : 'text-gray-700 hover:text-primary-600'
+                filter === 'design' ? 'bg-white dark:bg-gray-700 shadow-sm text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
               }`}
             >
               Design
@@ -151,7 +151,7 @@ const Projects: React.FC = () => {
               variants={itemVariants}
               className="group"
             >
-              <div className="card overflow-hidden flex flex-col h-full">
+              <div className="card overflow-hidden flex flex-col h-full dark:bg-gray-800">
                 <div className="relative overflow-hidden rounded-lg mb-4 aspect-video">
                   <img 
                     src={project.image} 
@@ -160,34 +160,34 @@ const Projects: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                     <div className="flex gap-2">
-                      <a href="#" className="p-2 bg-white/90 rounded-full text-gray-800 hover:bg-primary-500 hover:text-white transition-colors" aria-label="View project">
+                      <a href="#" className="p-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-gray-800 dark:text-gray-200 hover:bg-primary-500 dark:hover:bg-primary-600 hover:text-white transition-colors" aria-label="View project">
                         <ExternalLink size={16} />
                       </a>
-                      <a href="#" className="p-2 bg-white/90 rounded-full text-gray-800 hover:bg-primary-500 hover:text-white transition-colors" aria-label="View code">
+                      <a href="#" className="p-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-gray-800 dark:text-gray-200 hover:bg-primary-500 dark:hover:bg-primary-600 hover:text-white transition-colors" aria-label="View code">
                         <Github size={16} />
                       </a>
                     </div>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary-600 transition-colors">
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400 transition-colors">
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-600 mb-4 flex-grow">
+                <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
                   {project.description}
                 </p>
                 
                 <div className="mt-auto">
                   <div className="flex flex-wrap gap-2 mb-3">
                     {project.tags.map((tag, index) => (
-                      <span key={index} className="px-2 py-1 bg-gray-100 text-gray-600 rounded-md text-xs font-medium">
+                      <span key={index} className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md text-xs font-medium">
                         {tag}
                       </span>
                     ))}
                   </div>
                   
-                  <div className="flex items-center text-sm text-primary-600">
+                  <div className="flex items-center text-sm text-primary-600 dark:text-primary-400">
                     <Monitor size={16} className="mr-1" />
                     <span className="font-medium capitalize">{project.category} Project</span>
                   </div>

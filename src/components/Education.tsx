@@ -34,21 +34,18 @@ const Education: React.FC = () => {
       institution: 'National Institute of Technology, Warangal',
       period: '2021 - 2025',
       cgpa: '7.69/10',
-      //description: 'Specialized in embedded and Human-Computer Interaction and Web Technologies with a focus on building accessible digital experiences.'
     },
     {
       degree: 'Intermediate in Science',
       institution: 'Sunbeam Academy, Varanasi',
       period: '2019 - 2021',
       cgpa: '95.8%',
-      //description: 'Completed with a focus on Physics, Chemistry, and Mathematics, achieving top grades in all subjects.'
     },
     {
       degree: 'High School',
       institution: 'JNV Buxar (Bihar)',
       period: '2018 - 2019',
       cgpa: '97.6%',
-      //description: 'Completed with a strong foundation in science and mathematics, excelling in all subjects and participating in various extracurricular activities.'
     }
   ];
 
@@ -65,15 +62,14 @@ const Education: React.FC = () => {
       date: '2022',
       link: 'https://www.coursera.org/account/accomplishments/verify/8HEUEZNJ2M6N'
     },
-    
   ];
 
   return (
-    <section id="education" className="section bg-white">
+    <section id="education" className="section bg-white dark:bg-gray-900">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="section-title">Education & Certifications</h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto mt-4">
+          <h2 className="section-title dark:text-white">Education & Certifications</h2>
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mt-4">
             My academic background and professional certifications that have contributed to my expertise.
           </p>
         </div>
@@ -86,30 +82,29 @@ const Education: React.FC = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
         >
           <motion.div variants={itemVariants}>
-            <div className="bg-gray-50 rounded-xl shadow-md p-6 h-full">
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md p-6 h-full">
               <div className="flex items-center mb-6">
-                <div className="p-3 bg-primary-100 rounded-lg mr-4">
-                  <GraduationCap size={24} className="text-primary-600" />
+                <div className="p-3 bg-primary-100 dark:bg-primary-900/50 rounded-lg mr-4">
+                  <GraduationCap size={24} className="text-primary-600 dark:text-primary-400" />
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-900">Education</h3>
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Education</h3>
               </div>
               
               <div className="space-y-8">
                 {education.map((edu, index) => (
-                  <div key={index} className="relative pl-6 border-l-2 border-gray-200 pb-8 last:pb-0">
-                    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary-500 border-4 border-white"></div>
+                  <div key={index} className="relative pl-6 border-l-2 border-gray-200 dark:border-gray-700 pb-8 last:pb-0">
+                    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary-500 dark:bg-primary-400 border-4 border-white dark:border-gray-800"></div>
                     
-                    <h4 className="text-xl font-semibold text-gray-900 mb-1">{edu.degree}</h4>
-                    <div className="flex items-center text-primary-600 mb-2">
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">{edu.degree}</h4>
+                    <div className="flex items-center text-primary-600 dark:text-primary-400 mb-2">
                       <span className="font-medium">{edu.institution}</span>
                     </div>
                     
-                    <div className="flex items-center text-sm text-gray-500 mb-3">
+                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
                       <Calendar size={14} className="mr-1" />
                       <span>{edu.period}</span>
                     </div>
-                    <p className="text-gray-700">CGPA:{edu.cgpa}</p>
-                    {/* <p className="text-gray-700">{edu.description}</p> */}
+                    <p className="text-gray-700 dark:text-gray-300">CGPA: {edu.cgpa}</p>
                   </div>
                 ))}
               </div>
@@ -117,26 +112,26 @@ const Education: React.FC = () => {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <div className="bg-gray-50 rounded-xl shadow-md p-6 h-full">
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md p-6 h-full">
               <div className="flex items-center mb-6">
-                <div className="p-3 bg-accent-100 rounded-lg mr-4">
-                  <Award size={24} className="text-accent-600" />
+                <div className="p-3 bg-accent-100 dark:bg-accent-900/50 rounded-lg mr-4">
+                  <Award size={24} className="text-accent-600 dark:text-accent-400" />
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-900">Certifications</h3>
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Certifications</h3>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
                 {certifications.map((cert, index) => (
-                  <div key={index} className="card bg-white hover:bg-accent-50 hover:border-l-4 hover:border-accent-500 group">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-accent-700">{cert.title}</h4>
-                    <div className="text-accent-600 mb-2 font-medium">{cert.issuer}</div>
-                    <div className="flex items-center text-sm text-gray-500 mb-3">
+                  <div key={index} className="car bg-white dark:bg-gray-700 hover:bg-accent-50 dark:hover:bg-accent-900/50 hover:border-l-4 hover:border-accent-500 dark:hover:border-accent-400 group">
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-accent-700 dark:group-hover:text-accent-300">{cert.title}</h4>
+                    <div className="text-accent-600 dark:text-accent-400 mb-2 font-medium">{cert.issuer}</div>
+                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
                       <Calendar size={14} className="mr-1" />
                       <span>{cert.date}</span>
                     </div>
                     <a 
                       href={cert.link} 
-                      className="text-sm inline-flex items-center text-accent-600 hover:text-accent-800 transition-colors"
+                      className="text-sm inline-flex items-center text-accent-600 dark:text-accent-400 hover:text-accent-800 dark:hover:text-accent-300 transition-colors"
                     >
                       View Certificate
                       <ExternalLink size={14} className="ml-1" />
